@@ -9,37 +9,44 @@ namespace Organizer
 {
     internal class RotateSort
     {
-        public List<int> Rotate(List<int> numbers) 
-        
-                var random = new Random();
-                int rnd = random.Next(numbers.Count);
-                int pivot = numbers[rnd];
-                List<int> result = Partition(pivot, numbers);
-            return result;
+        public void Rotate(List<int> numbers, int left, int right)
+        {
+            if (right - left < 1)
+            {
+                return;
+            }
+            int pivotIndex = Partitioning(numbers, left, right);
+
+            Rotate(numbers, left, pivotIndex - 1);
+            Rotate(numbers, pivotIndex + 1, right);
         }
 
-        public List<int> Partition(int RandomElement, List <int> numbers)
+        public int Partitioning(List<int> numbers, int left, int right)
         {
-            List<int> Left = new List<int>();
-            List<int> Right = new List<int>();
-            Console.WriteLine("Random element:");
-            Console.WriteLine(RandomElement);
-            for (int i = 0; i < numbers.Count; i++){
-                if (numbers[i] <= RandomElement)
+            int pivotIndex = new Random().Next(left, right+1);
+            int pivot = numbers[pivotIndex];
+            numbers[pivotIndex] = numbers[right];
+            numbers[right] = pivot;
+
+            int i = left;
+            for (int j = left; j < right; j++)
+            {
+                if (numbers[j] <= pivot)
                 {
-                    Left.Add(numbers[i]);
-                } else
-                {
-                    Right.Add(numbers[i]);
+                    int temp = numbers[i];
+                    numbers[i] = numbers[j];
+                    numbers[j] = temp;
+                    i++;
                 }
             }
-            Console.WriteLine("Left");
-            Left.ForEach(i => Console.Write("{0},\t", i));
-            Console.WriteLine("right");
-            Right.ForEach(i => Console.Write("{0},\t", i));
-            Left.AddRange(Right);
-            List<int> result = Left;
-        return result;
+            numbers[right] = numbers[i];
+            numbers[i] = pivot;
+
+            return i;
         }
     }
+
+
+
 }
+
