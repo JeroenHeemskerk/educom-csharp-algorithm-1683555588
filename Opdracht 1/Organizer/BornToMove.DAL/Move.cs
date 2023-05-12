@@ -9,12 +9,12 @@ namespace BornToMove
     [Table("move")]
     public class Move
     {
-        private string id = "";
+        private int? id = null;
         private string name = "";
         private string description = "";
         private string sweatRate = "";
 
-        public string Id
+        public int? Id
         {
             get { return id; }
             set { id = value; }

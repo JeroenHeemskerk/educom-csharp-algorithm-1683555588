@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using MySql.Data.MySqlClient;
-using MySql.Data.EntityFrameworkCore.Extensions;
+//using MySql.Data.EntityFrameworkCore.Extensions;
 using BornToMove;
 
 namespace BornToMove.DAL
