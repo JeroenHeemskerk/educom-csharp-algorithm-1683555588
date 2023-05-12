@@ -7,6 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\BornToMove.DAL\BornToMove.DAL.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="8.0.33" />
+    <PackageReference Include="MySql.EntityFrameworkCore" Version="7.0.2" />
   </ItemGroup>
 </Project>

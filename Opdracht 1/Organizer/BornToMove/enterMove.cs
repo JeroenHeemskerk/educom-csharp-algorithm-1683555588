@@ -1,5 +1,7 @@
 ﻿using System;
 using MySql.Data.MySqlClient;
+using BornToMove.DAL;
+using BornToMove.Business;
 
 namespace BornToMove
 {
@@ -7,7 +9,10 @@ namespace BornToMove
 	{
 		public enterMove(MySqlConnection connection)
 		{
-			Console.WriteLine("Je hebt gekozen om een nieuwe oefening toe te voegen.");
+            var context = new MoveContext();
+            var buMove = new BuMove(context);
+            
+            Console.WriteLine("Je hebt gekozen om een nieuwe oefening toe te voegen.");
             int count = 0;
             string name;
             do
@@ -49,25 +54,8 @@ namespace BornToMove
             }
             Console.WriteLine("Top! Ik zal de oefeningen toevoegen aan de lijst");
 
-            MySqlCommand enterExercise = new MySqlCommand("INSERT INTO move " +
-				"(name, description, sweatRate) " +
-				"VALUES (@name, @description, @sweatRate)", connection);
-            enterExercise.Parameters.AddWithValue("@name", name);
-            enterExercise.Parameters.AddWithValue("@description", description);
-            enterExercise.Parameters.AddWithValue("@sweatRate", sweatRate);
-			try
-			{
-				connection.Open();
-                enterExercise.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-			{
-				Console.WriteLine("Error:{0}", ex.ToString());
-			}
-			finally
-			{
-				connection.Close();
-			}
+            buMove.CreateMove(name, description, sweatRate);
+  
         }
     }
 }
