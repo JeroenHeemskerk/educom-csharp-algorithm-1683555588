@@ -18,12 +18,17 @@ namespace BornToMove.Business
             return _moveCrud.GetMoveById(id);
         }
 
+        public Move GetMoveByName (string name)
+        {
+            return _moveCrud.GetMoveByName(name);
+        }
+
         public List<Move> GetAllMoves()
         {
             return (List<Move>)_moveCrud.GetAllMoves();
         }
 
-        public void CreateMove(string name, string description, string sweatRate)
+        public void CreateMove(string name, string description, int sweatRate)
         {
             var move = new Move { Name = name, Description = description, SweatRate = sweatRate };
             _moveCrud.CreateMove(move);

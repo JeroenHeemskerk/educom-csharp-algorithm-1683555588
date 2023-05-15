@@ -1,38 +1,28 @@
 ﻿using System;
-using MySql.Data.MySqlClient;
+using BornToMove;
+using BornToMove.Business;
+using BornToMove.DAL;
 
 namespace BornToMove
 {
 	public class suggestie
 	{
-		public suggestie(MySqlConnection connection)
+		public suggestie()
 		{
-            MySqlCommand randomExercise = new MySqlCommand("SELECT name, description, sweatRate FROM move ORDER BY RAND() LIMIT 1", connection);
+            var context = new MoveContext();
+            var buMove = new BuMove(context);
+            Random random = new Random();
 
-            try
-            {
-                connection.Open();
-                MySqlDataReader reader = randomExercise.ExecuteReader();
+            List<Move> exerciseList = buMove.GetAllMoves();
+            int count = exerciseList.Count;
+            int randomIndex = random.Next(count);
+            Move randomMove = exerciseList[randomIndex];
 
-                while (reader.Read())
-                {
-                    Console.WriteLine("Je volgende oefening is: {0}\n" +
-                        "Instructie: {1}.\n" +
-                        "Deze oefening heeft een intensiteitsniveau van: {2}",
-                        reader.GetString(0), reader.GetString(1), reader.GetString(2));
-                }
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error: {0}", ex.ToString());
-            }
-            finally
-            {
-                connection.Close();
-
-            }
+            Console.WriteLine("Je volgende oefening is: {0}\n" +
+                "Instructie: {1}.\n" +
+                "Deze oefening heeft een intensiteitsniveau van: {2}",
+                randomMove.Name, randomMove.Description, randomMove.SweatRate);
         }
-	}
+    }
 }
 

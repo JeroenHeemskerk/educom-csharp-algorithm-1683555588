@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using BornToMove;
+using Microsoft.EntityFrameworkCore;
 
 namespace BornToMove.DAL
 
@@ -40,9 +41,18 @@ namespace BornToMove.DAL
             return _context.Moves.Find(id);
         }
 
-        public IEnumerable<Move> GetAllMoves()
+        public Move GetMoveByName(string name)
+        {
+            return _context.Moves.FirstOrDefault(m => m.Name == name);
+        }
+
+        public List<Move> GetAllMoves()
         {
             return _context.Moves.ToList();
         }
     }
 }
+
+
+
+

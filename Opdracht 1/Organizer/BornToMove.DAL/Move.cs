@@ -12,7 +12,7 @@ namespace BornToMove
         private int? id = null;
         private string name = "";
         private string description = "";
-        private string sweatRate = "";
+        private int sweatRate;
 
         public int? Id
         {
@@ -32,7 +32,7 @@ namespace BornToMove
             set { description = value; }
         }
 
-        public string SweatRate
+        public int SweatRate
         {
             get { return sweatRate; }
             set { sweatRate = value; }
@@ -40,4 +40,5 @@ namespace BornToMove
 
     }
 }
+
 

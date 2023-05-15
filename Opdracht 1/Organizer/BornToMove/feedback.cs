@@ -6,26 +6,26 @@ namespace BornToMove
 		public feedback()
 		{
 			string answer;
-			Console.WriteLine("Ben je klaar met de oefening? (ja/nee");
+			Console.WriteLine("Ben je klaar met de oefening? (ja/nee)");
 			do
 			{
 				answer = Console.ReadLine().Trim().ToLower();
 				if (answer == "ja")
 				{
-                    Console.WriteLine("Great!");
+                    Console.WriteLine("Top!");
                     string answerExercise, answerIntensity;
                     int ratingExercise, ratingIntensity;
 
                     do
                     {
-                        Console.WriteLine("On a scale from 1-5, how was the exercise? (5 being amazing)");
+                        Console.WriteLine("Op een schaal van 1-5, hoe leuk vond je de oefening? (5 is geweldig)");
                         answerExercise = Console.ReadLine().Trim().ToLower();
 
                     } while (!int.TryParse(answerExercise, out ratingExercise) || ratingExercise < 1 || ratingExercise > 5);
 
                     do
                     {
-                        Console.WriteLine("On a scale from 1-5, how intense was the exercise?");
+                        Console.WriteLine("Op een schaal van 1-5, hoe intens was deze oefening?");
                         answerIntensity = Console.ReadLine().Trim().ToLower();
 
                     } while (!int.TryParse(answerIntensity, out ratingIntensity) || ratingIntensity < 1 || ratingIntensity > 5);

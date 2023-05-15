@@ -1,48 +1,28 @@
 ﻿using System;
-using MySql.Data.MySqlClient;
+using BornToMove.Business;
+using BornToMove.DAL;
 
 namespace BornToMove
 {
 	public class kiezen
 	{
-        private MySqlConnection connection;
+        
 
-        public kiezen(MySqlConnection connection)
-        {
-            this.connection = connection;
-        }
-
-        public List<string> kiesActiviteit(MySqlConnection connection)
+        public List<Move> kiesActiviteit()
 		{
-            List<string> exerciseNames = new List<string>();
+            var context = new MoveContext();
+            var buMove = new BuMove(context);
+
             Console.WriteLine("Hier is een lijst van beschikbare oefeningen: ");
-            MySqlCommand exerciseList = new MySqlCommand("SELECT id, name, sweatRate FROM move", connection);
 
-            try
+            List<Move> exerciseList =  buMove.GetAllMoves();
+            int exerciseNumber = 1;
+            foreach (Move exercise in exerciseList)
             {
-                connection.Open();
-                MySqlDataReader reader = exerciseList.ExecuteReader();
-                int exerciseNumber = 1;
-
-                while (reader.Read())
-                {
-                    string exerciseName = reader.GetString(1);
-                    string exerciseIntensity = reader.GetString(2);
-                    Console.WriteLine($"{exerciseNumber}. {exerciseName}. Intensiteit: {exerciseIntensity}");
-                    exerciseNames.Add(exerciseName);
-                    exerciseNumber++;
-                }
-                reader.Close();
+                Console.WriteLine($"{exerciseNumber}. {exercise.Name}, Intensiteit: {exercise.SweatRate}");
+                exerciseNumber++;
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error: {0}", ex.ToString());
-            }
-            finally
-            {
-                connection.Close();
-            }
-            return exerciseNames;
+            return exerciseList;
         }
 	}
 }
