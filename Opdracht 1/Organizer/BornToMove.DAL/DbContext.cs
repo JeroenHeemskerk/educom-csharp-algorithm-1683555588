@@ -11,6 +11,7 @@ namespace BornToMove.DAL
         public YourDbContext(DbContextOptions<YourDbContext> options) : base(options) { }
 
         public DbSet<Move> Moves { get; set; }
+      //  public DbSet<MoveRating> MoveRating { get; set; }
     }
 }
 

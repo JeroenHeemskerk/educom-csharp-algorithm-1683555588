@@ -1,32 +1,32 @@
-﻿using System;
-using System.Security.Cryptography;
-using MySql.Data.MySqlClient;
-//using MySql.Data.EntityFrameworkCore.Extensions;
+﻿
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using BornToMove;
-
 
 namespace BornToMove.DAL
 {
+
+
+    public class Startup
+    {
+        public void ConfigureServices(IServiceCollection services)
+            => services.AddDbContext<MoveContext>();
+        
+    }
     public class MoveContext : DbContext
     {
-        public MoveContext(DbContextOptions<MoveContext> options) : base(options) { }
-
-        public MoveContext()
-        {
-        }
-
+        public DbSet<Move> Moves { get; set; }
+        public DbSet<MoveRating> MoveRating { get; set; }
+        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-                var serverVersion = new MariaDbServerVersion(new Version(10, 4, 27));
-
-                optionsBuilder.UseMySql("Server=localhost;Database=born2move;Uid=root;Pwd=Edu-Com17;", serverVersion);
-            }
-            base.OnConfiguring(optionsBuilder);
+          var serverVersion = new MariaDbServerVersion(new Version(10, 4, 27));
+         optionsBuilder.UseMySql("Server=localhost;Database=born2move;Uid=root;Pwd=Edu-Com17;", serverVersion);
+          
+            
         }
 
-        public DbSet<Move> Moves { get; set; }
+       
+        
     }
 }

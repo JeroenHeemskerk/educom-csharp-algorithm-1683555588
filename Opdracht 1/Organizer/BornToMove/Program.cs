@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Security.Cryptography;
+using BornToMove.DAL;
 
 
 namespace BornToMove
@@ -9,6 +10,9 @@ namespace BornToMove
     {
         public static void Main()
         {
+             
+
+
             Console.WriteLine("Tijd om te bewegen!");
             string answer;
             Console.WriteLine("Wil je een bewegingssuggestie of zelf een oefening kiezen? (suggestie/kiezen/nee)");

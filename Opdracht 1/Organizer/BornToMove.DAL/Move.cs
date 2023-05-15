@@ -13,6 +13,8 @@ namespace BornToMove
         private string name = "";
         private string description = "";
         private int sweatRate;
+        public ICollection<MoveRating> Rating { get; set; }
+
 
         public int? Id
         {
