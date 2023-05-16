@@ -6,7 +6,7 @@ namespace BornToMove
 {
 	public class feedback
 	{
-		public feedback()
+		public feedback(Move move)
 		{
 			string answer;
 			Console.WriteLine("Ben je klaar met de oefening? (ja/nee)");
@@ -18,8 +18,8 @@ namespace BornToMove
                     Console.WriteLine("Top!");
                     string answerExercise, answerIntensity;
                     int ratingExercise, ratingIntensity;
-                    var contextMove = new MoveContext();
-                    var buMove = new BuMove(contextMove);
+                    var context = new MoveContext();
+                    var buMoveRating = new BuMoveRating(context);
 
                     do
                     {
@@ -27,7 +27,12 @@ namespace BornToMove
                         answerExercise = Console.ReadLine().Trim().ToLower();
 
                     } while (!int.TryParse(answerExercise, out ratingExercise) || ratingExercise < 1 || ratingExercise > 5);
-
+                    double doubleAnswerExercise = Convert.ToDouble(answerExercise);
+                    double vote = 1;
+                    Console.WriteLine(vote);
+                    Console.WriteLine(doubleAnswerExercise);
+                    Console.WriteLine(move.Id);
+                    buMoveRating.CreateMoveRating(move, doubleAnswerExercise, vote);
 
                     do
                     {

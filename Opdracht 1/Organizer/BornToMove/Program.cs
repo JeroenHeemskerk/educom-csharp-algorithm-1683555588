@@ -21,13 +21,15 @@ namespace BornToMove
                 answer = Console.ReadLine().Trim().ToLower();
                 if (answer == "suggestie")
                 {
-                    suggestie suggestie = new suggestie();
-                    feedback feedback = new feedback();
+                    suggestie suggestieInstance = new suggestie();
+                    Move move = suggestieInstance.suggestieMove();
+                    feedback feedback = new feedback(move);
                 }
                 else if (answer == "kiezen")
                 {
-                    chooseExercise chooseExercise = new chooseExercise();
-                    feedback feedback = new feedback();
+                    chooseExercise chooseExerciseInstance = new chooseExercise();
+                    Move move = chooseExerciseInstance.chooseExerciseMove();
+                    feedback feedback = new feedback(move);
                 }
                 else if (answer != "nee" && answer != "no")
                 {

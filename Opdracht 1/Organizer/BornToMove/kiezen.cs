@@ -13,6 +13,7 @@ namespace BornToMove
             var context = new MoveContext();
             var buMove = new BuMove(context);
 
+
             Console.WriteLine("Hier is een lijst van beschikbare oefeningen: ");
 
             List<Move> exerciseList =  buMove.GetAllMoves();

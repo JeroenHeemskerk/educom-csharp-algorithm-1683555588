@@ -7,8 +7,9 @@ namespace BornToMove
 {
 	public class chooseExercise
 	{
-        public chooseExercise()
+        public Move chooseExerciseMove()
         {
+            Move move = new Move();
             bool validExercise = false;
             do
             {
@@ -22,16 +23,20 @@ namespace BornToMove
                 {
                     enterMove enterMove = new enterMove();
                     chooseExercise exercise = new chooseExercise();
+                    exercise.chooseExerciseMove();
                 }
                 int intChosenExercise = int.Parse(chosenExercise);
-
+                move = MovesList[intChosenExercise - 1];
                 Console.WriteLine("De door jouw gekozen oefening is: {0}\n" +
                 "Instructies: {1}.\n" +
                 "Deze oefening heeft een intensiteitsniveau van: {2}",
-               MovesList[intChosenExercise-1].Name, MovesList[intChosenExercise-1].Description, MovesList[intChosenExercise-1].SweatRate);
+                move.Name, move.Description, move.SweatRate);
                 validExercise = true;
      
             } while (!validExercise);
+
+
+            return move;
         }
     }
 }

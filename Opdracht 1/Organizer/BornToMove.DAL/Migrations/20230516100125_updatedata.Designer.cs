@@ -3,6 +3,7 @@ using System;
 using BornToMove.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BornToMove.DAL.Migrations
 {
     [DbContext(typeof(MoveContext))]
-    partial class MoveContextModelSnapshot : ModelSnapshot
+    [Migration("20230516100125_updatedata")]
+    partial class updatedata
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,6 +51,9 @@ namespace BornToMove.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<int?>("MoveId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Moveld")
                         .HasColumnType("int");
 
                     b.Property<double>("Rating")

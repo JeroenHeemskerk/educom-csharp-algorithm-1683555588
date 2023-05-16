@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +12,7 @@ namespace BornToMove
     public class MoveRating
     {
         private int? id = null;
-        private Move move;
+        private Move moveld;
         private double rating;
         private double vote;
 
@@ -20,11 +22,7 @@ namespace BornToMove
             set { id = value; }
         }
 
-        public Move Move
-        {
-            get { return move; }
-            set { move = value; }
-        }
+      
 
         public double Rating
         {
@@ -37,6 +35,8 @@ namespace BornToMove
             get { return vote; }
             set { vote = value; }
         }
+
+        public Move Moveld { get; set; }
 
 
 
