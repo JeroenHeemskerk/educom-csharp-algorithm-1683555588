@@ -1,4 +1,7 @@
 ﻿using System;
+using BornToMove.Business;
+using BornToMove.DAL;
+
 namespace BornToMove
 {
 	public class feedback
@@ -15,6 +18,8 @@ namespace BornToMove
                     Console.WriteLine("Top!");
                     string answerExercise, answerIntensity;
                     int ratingExercise, ratingIntensity;
+                    var contextMove = new MoveContext();
+                    var buMove = new BuMove(contextMove);
 
                     do
                     {
@@ -22,6 +27,7 @@ namespace BornToMove
                         answerExercise = Console.ReadLine().Trim().ToLower();
 
                     } while (!int.TryParse(answerExercise, out ratingExercise) || ratingExercise < 1 || ratingExercise > 5);
+
 
                     do
                     {
