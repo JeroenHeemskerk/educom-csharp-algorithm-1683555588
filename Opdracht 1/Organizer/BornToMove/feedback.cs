@@ -29,9 +29,6 @@ namespace BornToMove
                     } while (!int.TryParse(answerExercise, out ratingExercise) || ratingExercise < 1 || ratingExercise > 5);
                     double doubleAnswerExercise = Convert.ToDouble(answerExercise);
                     double vote = 1;
-                    Console.WriteLine(vote);
-                    Console.WriteLine(doubleAnswerExercise);
-                    Console.WriteLine(move.Id);
                     buMoveRating.CreateMoveRating(move, doubleAnswerExercise, vote);
 
                     do

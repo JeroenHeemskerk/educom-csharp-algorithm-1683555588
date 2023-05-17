@@ -25,9 +25,10 @@ namespace BornToMove.Business
 
         public void CreateMoveRating(Move move, double rating, double vote)
         {
-            var moveRating = new MoveRating {Moveld = move, Rating = rating, Vote = vote };
+            var moveRating = new MoveRating { MoveId = move.Id, Rating = rating, Vote = vote };
             _moveRatingCrud.CreateMoveRating(moveRating);
         }
+
 
         public void UpdateMoveRating(MoveRating moveRating)
         {

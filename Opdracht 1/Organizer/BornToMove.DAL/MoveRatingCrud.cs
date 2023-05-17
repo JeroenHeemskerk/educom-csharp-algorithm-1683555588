@@ -14,6 +14,7 @@ namespace BornToMove.DAL
 
         public void CreateMoveRating(MoveRating moveRating)
         {
+            
             _context.MoveRating.Add(moveRating);
             _context.SaveChanges();
         }
@@ -38,7 +39,7 @@ namespace BornToMove.DAL
 
         public List<MoveRating> GetAllMoveRatings()
         {
-            return _context.MoveRating.Include(mr => mr.Moveld).ToList();
+            return _context.MoveRating.Include(mr => mr.Move).ToList();
         }
     }
 }

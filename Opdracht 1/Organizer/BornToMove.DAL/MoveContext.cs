@@ -17,7 +17,13 @@ namespace BornToMove.DAL
     {
         public DbSet<Move> Moves { get; set; }
         public DbSet<MoveRating> MoveRating { get; set; }
-        
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<MoveRating>().ToTable("MoveRating");
+            modelBuilder.Entity<Move>().ToTable("move");
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
           var serverVersion = new MariaDbServerVersion(new Version(10, 4, 27));
