@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BornToMove.Business", "Born
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BornToMove.DAL", "BornToMove.DAL\BornToMove.DAL.csproj", "{3BBDC613-B74B-49EE-B482-B2D83C49EF8F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BornToMove.OrganizerTest", "BornToMove.OrganizerTest\BornToMove.OrganizerTest.csproj", "{C19023FC-F701-4BEC-A409-2F68CA5037E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BornToMove.Test", "BornToMove.Test\BornToMove.Test.csproj", "{3EE67666-C625-475C-AE4A-8FE9EF63C65B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{3BBDC613-B74B-49EE-B482-B2D83C49EF8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3BBDC613-B74B-49EE-B482-B2D83C49EF8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3BBDC613-B74B-49EE-B482-B2D83C49EF8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C19023FC-F701-4BEC-A409-2F68CA5037E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C19023FC-F701-4BEC-A409-2F68CA5037E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C19023FC-F701-4BEC-A409-2F68CA5037E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C19023FC-F701-4BEC-A409-2F68CA5037E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EE67666-C625-475C-AE4A-8FE9EF63C65B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EE67666-C625-475C-AE4A-8FE9EF63C65B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EE67666-C625-475C-AE4A-8FE9EF63C65B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EE67666-C625-475C-AE4A-8FE9EF63C65B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

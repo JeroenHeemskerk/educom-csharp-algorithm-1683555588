@@ -22,7 +22,7 @@ namespace Organizer
             stopwatch.Start();
             List<int> ShiftList = Shift.Sort(list);
             stopwatch.Stop();
-            Console.WriteLine("Elapsed time for first sorting function: {0}", stopwatch.Elapsed);
+            Console.WriteLine("Elapsed time for shift sorting function: {0}", stopwatch.Elapsed);
 
             TimeSpan first = stopwatch.Elapsed;
             CheckList(ShiftList);
@@ -30,7 +30,7 @@ namespace Organizer
             stopwatch.Start();
             RotateSort.Rotate(numbers, 0, numbers.Count-1);
             stopwatch.Stop();
-            Console.WriteLine("Elapsed time for second sorting function: {0}", stopwatch.Elapsed);
+            Console.WriteLine("Elapsed time for the partitioning sorting function: {0}", stopwatch.Elapsed);
 
             TimeSpan second = stopwatch.Elapsed;
             CheckList(numbers);
