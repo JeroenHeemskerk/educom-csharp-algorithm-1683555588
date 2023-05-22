@@ -18,7 +18,7 @@ namespace BornToMove
 
             var result = buMove.GetAllMovesWithAverageRating();
             List<Move> exerciseList = result.moves;
-            List<double> averageRatings = result.averageRatings;
+            List<int> averageRatings = result.averageRatings;
             Console.WriteLine($" average rating = {averageRatings[2]}");
 
             int exerciseNumber = 1;

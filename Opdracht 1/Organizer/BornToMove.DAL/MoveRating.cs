@@ -23,6 +23,7 @@ namespace BornToMove
         [ForeignKey("Move")]
         public int? MoveId { get; set; }
 
-        public Move Move { get; set; } // Navigation property for the related Move entity
+        public Move Move { get; set; }
     }
 }
+

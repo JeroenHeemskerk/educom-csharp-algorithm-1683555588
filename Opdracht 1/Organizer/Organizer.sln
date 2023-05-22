@@ -3,17 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Organizer", "Organizer\Organizer.csproj", "{E633EA30-EE08-4643-8D59-15EE058DE954}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BornToMove", "BornToMove\BornToMove.csproj", "{394FBF4F-2D21-4648-BF08-73D12BAB3BD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BornToMove", "BornToMove\BornToMove.csproj", "{394FBF4F-2D21-4648-BF08-73D12BAB3BD1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BornToMove.Business", "BornToMove.Business\BornToMove.Business.csproj", "{07D9785B-5BB6-4165-8CA7-EF953ABA40B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BornToMove.Business", "BornToMove.Business\BornToMove.Business.csproj", "{07D9785B-5BB6-4165-8CA7-EF953ABA40B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BornToMove.DAL", "BornToMove.DAL\BornToMove.DAL.csproj", "{3BBDC613-B74B-49EE-B482-B2D83C49EF8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BornToMove.DAL", "BornToMove.DAL\BornToMove.DAL.csproj", "{3BBDC613-B74B-49EE-B482-B2D83C49EF8F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BornToMove.OrganizerTest", "BornToMove.OrganizerTest\BornToMove.OrganizerTest.csproj", "{C19023FC-F701-4BEC-A409-2F68CA5037E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BornToMove.OrganizerTest", "BornToMove.OrganizerTest\BornToMove.OrganizerTest.csproj", "{C19023FC-F701-4BEC-A409-2F68CA5037E4}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BornToMove.Test", "BornToMove.Test\BornToMove.Test.csproj", "{3EE67666-C625-475C-AE4A-8FE9EF63C65B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Organizer", "Organizer\Organizer.csproj", "{C2C739F7-D2C4-4B70-9F28-BFAFAC38D588}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E633EA30-EE08-4643-8D59-15EE058DE954}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E633EA30-EE08-4643-8D59-15EE058DE954}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E633EA30-EE08-4643-8D59-15EE058DE954}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E633EA30-EE08-4643-8D59-15EE058DE954}.Release|Any CPU.Build.0 = Release|Any CPU
 		{394FBF4F-2D21-4648-BF08-73D12BAB3BD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{394FBF4F-2D21-4648-BF08-73D12BAB3BD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{394FBF4F-2D21-4648-BF08-73D12BAB3BD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -41,10 +35,10 @@ Global
 		{C19023FC-F701-4BEC-A409-2F68CA5037E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C19023FC-F701-4BEC-A409-2F68CA5037E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C19023FC-F701-4BEC-A409-2F68CA5037E4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3EE67666-C625-475C-AE4A-8FE9EF63C65B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3EE67666-C625-475C-AE4A-8FE9EF63C65B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3EE67666-C625-475C-AE4A-8FE9EF63C65B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3EE67666-C625-475C-AE4A-8FE9EF63C65B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2C739F7-D2C4-4B70-9F28-BFAFAC38D588}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2C739F7-D2C4-4B70-9F28-BFAFAC38D588}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2C739F7-D2C4-4B70-9F28-BFAFAC38D588}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2C739F7-D2C4-4B70-9F28-BFAFAC38D588}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

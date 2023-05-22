@@ -22,12 +22,14 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Organizer\Organizer.csproj" />
+  </ItemGroup>
   <ItemGroup>
     <Reference Include="MySql.Data">
       <HintPath>..\BornToMove\bin\Debug\net7.0\MySql.Data.dll</HintPath>
     </Reference>
-  </ItemGroup>
-  <ItemGroup>
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>

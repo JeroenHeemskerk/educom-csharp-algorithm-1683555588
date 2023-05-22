@@ -1,7 +1,9 @@
 ﻿using BornToMove.DAL;
+using Organizer;
 using BornToMove;
 using System.Collections.Generic;
 using System.Linq;
+using Org.BouncyCastle.Crypto.Tls;
 
 namespace BornToMove.Business
 {
@@ -60,28 +62,37 @@ namespace BornToMove.Business
             return (move, averageRating);
         }
 
-        public (List<Move> moves, List<double> averageRatings) GetAllMovesWithAverageRating()
+        public (List<Move> moves, List<int> averageRatings) GetAllMovesWithAverageRating()
         {
             List<Move> moves = _moveCrud.GetAllMoves();
 
-            List<double> averageRatings = moves.Select(move =>
+            List<MoveRating> moveRatings = _moveRatingCrud.GetAllMoveRatings();
+
+            List<int> averageRatings = moves.Select(move =>
             {
-                var moveRatings = _moveRatingCrud.GetAllMoveRatings()
+                var moveRatingsForMove = moveRatings
                     .Where(rating => rating.MoveId == move.Id)
                     .ToList();
 
-                double averageRating = moveRatings.Any()
-                    ? moveRatings.Average(rating => rating.Rating)
+                double averageRating = moveRatingsForMove.Any()
+                    ? moveRatingsForMove.Average(rating => rating.Rating)
                     : 0;
 
-                return averageRating;
+                int averageRatingInt = (int)Math.Round(averageRating);
+
+                return averageRatingInt;
             }).ToList();
+
+            var rotateSort = new RotateSort<int>();
+            var comparer = new IntComparer();
+
+            rotateSort.Rotate(averageRatings, 0, averageRatings.Count - 1, comparer);
 
             return (moves, averageRatings);
         }
 
 
 
-
     }
 }
+
