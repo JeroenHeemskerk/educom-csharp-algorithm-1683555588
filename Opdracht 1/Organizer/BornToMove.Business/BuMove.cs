@@ -62,36 +62,29 @@ namespace BornToMove.Business
             return (move, averageRating);
         }
 
-        public (List<Move> moves, List<int> averageRatings) GetAllMovesWithAverageRating()
+        public List<MoveRating> GetAllMovesWithAverageRating()
         {
             List<Move> moves = _moveCrud.GetAllMoves();
-
-            List<MoveRating> moveRatings = _moveRatingCrud.GetAllMoveRatings();
-
-            List<int> averageRatings = moves.Select(move =>
+            List<MoveRating> averageRatings = moves.Select(move =>
             {
-                var moveRatingsForMove = moveRatings
-                    .Where(rating => rating.MoveId == move.Id)
-                    .ToList();
+                var moveRatingsForMove = move.Rating;
 
                 double averageRating = moveRatingsForMove.Any()
                     ? moveRatingsForMove.Average(rating => rating.Rating)
                     : 0;
-
                 int averageRatingInt = (int)Math.Round(averageRating);
 
-                return averageRatingInt;
+                return new MoveRating() { Move = move, Rating = averageRatingInt };
             }).ToList();
 
-            var rotateSort = new RotateSort<int>();
-            var comparer = new IntComparer();
 
-            rotateSort.Rotate(averageRatings, 0, averageRatings.Count - 1, comparer);
+            var rotateSort = new RotateSort<MoveRating>();
+            var comparer = new RatingsConverter();
 
-            return (moves, averageRatings);
+            rotateSort.Sort(averageRatings, comparer);
+
+            return averageRatings;
         }
-
-
 
     }
 }

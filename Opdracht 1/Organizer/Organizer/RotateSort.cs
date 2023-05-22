@@ -7,19 +7,28 @@ namespace Organizer
 {
     public class RotateSort<T>
     {
-        public void Rotate(List<T> items, int left, int right, IComparer<T> comparer)
+        private IComparer<T> comparer;
+
+        public void Sort(List<T> items, IComparer<T> comparer)
         {
+            this.comparer = comparer;
+            Rotate(items, 0, items.Count - 1);
+        }
+
+        private void Rotate(List<T> items, int left, int right)
+        {
+            Console.WriteLine(items);
             if (right - left < 1)
             {
                 return;
             }
-            int pivotIndex = Partitioning(items, left, right, comparer);
+            int pivotIndex = Partitioning(items, left, right);
 
-            Rotate(items, left, pivotIndex - 1, comparer);
-            Rotate(items, pivotIndex + 1, right, comparer);
+            Rotate(items, left, pivotIndex - 1);
+            Rotate(items, pivotIndex + 1, right);
         }
 
-        public int Partitioning(List<T> items, int left, int right, IComparer<T> comparer)
+        private int Partitioning(List<T> items, int left, int right)
         {
             int pivotIndex = new Random().Next(left, right + 1);
             T pivot = items[pivotIndex];

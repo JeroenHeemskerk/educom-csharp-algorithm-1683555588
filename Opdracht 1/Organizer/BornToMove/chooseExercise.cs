@@ -26,6 +26,8 @@ namespace BornToMove
                     exercise.chooseExerciseMove();
                 }
                 int intChosenExercise = int.Parse(chosenExercise);
+                Console.WriteLine(intChosenExercise);
+                Console.WriteLine(MovesList.Count);
                 move = MovesList[intChosenExercise - 1];
                 Console.WriteLine("De door jouw gekozen oefening is: {0}\n" +
                 "Instructies: {1}.\n" +

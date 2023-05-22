@@ -9,23 +9,13 @@ namespace BornToMove
     [Table("move")]
     public class Move
     {
-        private int? id = null;
-        private string name = "";
         private string description = "";
         private int sweatRate;
         public ICollection<MoveRating> Rating { get; set; }
 
-        public int? Id
-        {
-            get { return id; }
-            set { id = value; }
-        }
+        public int? Id { get; set; } = null;
 
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
+        public string Name { get; set; } = "";
 
         public string Description
         {

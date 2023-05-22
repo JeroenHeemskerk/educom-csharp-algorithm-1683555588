@@ -48,7 +48,7 @@ namespace BornToMove.DAL
 
         public List<Move> GetAllMoves()
         {
-            return _context.Moves.ToList();
+            return _context.Moves.Include(m=>m.Rating).ToList();
         }
     }
 }

@@ -17,17 +17,17 @@ namespace BornToMove
             Console.WriteLine("Hier is een lijst van beschikbare oefeningen: ");
 
             var result = buMove.GetAllMovesWithAverageRating();
-            List<Move> exerciseList = result.moves;
-            List<int> averageRatings = result.averageRatings;
-            Console.WriteLine($" average rating = {averageRatings[2]}");
+             
 
             int exerciseNumber = 1;
-            foreach (Move exercise in exerciseList)
+            foreach (MoveRating exercise in result)
 
             {
-                Console.WriteLine($"{exerciseNumber}. {exercise.Name}, intensiteit: {exercise.SweatRate}, gemiddelde waardering:{averageRatings[exerciseNumber-1]}");
+                Console.WriteLine($"{exerciseNumber}. {exercise.Move.Name}, intensiteit: {exercise.Move.SweatRate}, gemiddelde waardering:{exercise.Rating}");
                 exerciseNumber++;
             }
+
+            var exerciseList = result.Select(mr => mr.Move).ToList();
             return exerciseList;
         }
 	}
